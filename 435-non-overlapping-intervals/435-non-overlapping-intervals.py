@@ -15,7 +15,7 @@ class Solution:
             if lastInterval[1] > inter[0]: # interlapping
                 count += 1
                 lastInterval = inter if inter[1] <= lastInterval[1] else lastInterval # heuristic-ly get leftmost interval (greedy)
-            elif lastInterval[1] <= inter[1]:
+            else:#if lastInterval[1] <= inter[1]:
                 lastInterval = inter
                 
                 
