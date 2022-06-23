@@ -5,6 +5,9 @@ class Solution:
         targetMap = Counter(ransomNote)
         letterMap = Counter(magazine)
         
+
+        return letterMap >= targetMap
+        
         for k, v in targetMap.items():
             if k in letterMap:
                 if letterMap[k] < v:
