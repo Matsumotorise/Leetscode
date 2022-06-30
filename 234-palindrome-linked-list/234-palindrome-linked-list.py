@@ -25,7 +25,7 @@ class Solution:
         
         ptr1, ptr2 = head, prev
         
-        while ptr1 != slow and ptr1 and ptr2:
+        while ptr1 and ptr2:
             print(ptr1.val, ptr2.val)
             if ptr1.val != ptr2.val:
                 return False
