@@ -26,11 +26,8 @@ class Solution:
                 deletions += offset
                 freqs[freqsKeys[i]] -= 1
                 freqs[freqsKeys[i] - offset] += 1
-                
-                
             i += 1
            
-        print(freqs)
         return deletions
             
             
