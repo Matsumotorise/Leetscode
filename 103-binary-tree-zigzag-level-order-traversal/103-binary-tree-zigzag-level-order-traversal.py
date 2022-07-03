@@ -14,26 +14,19 @@ class Solution:
         lev = 0
         
         while queue:
-            levelVals = deque([])
+            levelVals = []
+            
             # Process stuff on this level
             for i in range(len(queue)):
                 node = queue.popleft()
-                # exit conditions
-                if not node:
-                    continue
-                if lev % 2 == 0:
+                if node:
                     levelVals.append(node.val)
-                else:
-                    levelVals.appendleft(node.val)
-                    
-                queue.append(node.left)
-                queue.append(node.right)
-                
-                
-            res.append(levelVals)
+                    queue.append(node.left)
+                    queue.append(node.right)
+
+            if levelVals:
+                res.append(levelVals if lev % 2 == 0 else levelVals[::-1])
             lev += 1
-                
-        res.pop()
                 
         return res
                 
