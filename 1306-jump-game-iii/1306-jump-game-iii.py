@@ -8,8 +8,6 @@ class Solution:
         while queue:
             idx = queue.popleft()
             # exit conds
-            if idx in visited:
-                continue
             if arr[idx] == 0:
                 return True
             
@@ -17,7 +15,7 @@ class Solution:
             
             # add children
             for ci in (idx+arr[idx], idx - arr[idx]):
-                if 0 <= ci < len(arr): # if in bounds
+                if 0 <= ci < len(arr) and ci not in visited: # if in bounds
                     queue.append(ci)
                     
             
