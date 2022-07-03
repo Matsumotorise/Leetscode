@@ -5,7 +5,7 @@ class Solution:
         
         freqMap = Counter(s)
         freqs = Counter(freqMap.values())
-        freqsKeys = sorted(freqs.keys())
+        freqsKeys = list(freqs.keys())
         
         
         # Cast [1, 2, 5, 5 6] -> [1,2, 4, 5, 6]
