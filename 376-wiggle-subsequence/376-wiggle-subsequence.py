@@ -24,6 +24,9 @@ class Solution:
                 elif flag & 0x1 and dy > 0:
                     curFlag |= 0x01
                     maxLISPos = max(maxLISPos, nLIS + 1)
+                    
+                if flag == 0x11: # optimization
+                    break
                 
             maxSz = max(maxSz, maxLISNeg, maxLISPos)
             dp[i] = (maxLISPos, maxLISNeg, curFlag)
