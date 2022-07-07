@@ -1,7 +1,7 @@
 class Solution:
     def longestDiverseString(self, a: int, b: int, c: int) -> str:
         import heapq
-        heap = [x for x in ((-a, 'a'),(-b, 'b'),(-c, 'c')) if x[0] != 0] # timeout until
+        heap = [x for x in ((-a, 'a'),(-b, 'b'),(-c, 'c')) if x[0] != 0] # minheap
         cooling = None
         heapq.heapify(heap)
         
@@ -10,7 +10,6 @@ class Solution:
         i = 0
         while heap:
             cnt, char = heapq.heappop(heap)
-            
             if cooling:
                 heapq.heappush(heap, cooling)
                 cooling = None
