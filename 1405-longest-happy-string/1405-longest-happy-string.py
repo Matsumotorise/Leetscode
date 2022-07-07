@@ -9,7 +9,6 @@ class Solution:
         
         i = 0
         while heap:
-            print(heap, res, i)
             cnt, char = heapq.heappop(heap)
             
             if cooling:
