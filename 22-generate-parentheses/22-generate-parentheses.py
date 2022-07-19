@@ -5,7 +5,7 @@ class Solution:
         
         
         def dfs(numOpen=0, numClose=0):
-            # Based case
+            # Base case
             if numClose == n:
                 lst.append("".join(curStr))
                 
