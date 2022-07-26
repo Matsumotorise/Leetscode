@@ -5,23 +5,24 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def deepestLeavesSum(self, root: Optional[TreeNode]) -> int:
-        if not root:
-            return 0
+    def deepestLeavesSumHelper(self, root: TreeNode, depth: int) -> int:
         
-        queue = deque([root])
-        maxS = 0
+        if root == None:
+            return 0, -1
         
-        while queue:
-            s = 0
-            curLen = len(queue)
-            for _ in range(curLen):
-                curNode = queue.popleft()
-                s+=curNode.val
-                if curNode.left:
-                    queue.append(curNode.left)
-                if curNode.right:
-                    queue.append(curNode.right)
-            maxS = s
-        return maxS
-            
+        if root.left == None and root.right == None:
+            return root.val, depth
+        
+        l, lDepth = self.deepestLeavesSumHelper(root.left, depth + 1)
+        r, rDepth = self.deepestLeavesSumHelper(root.right, depth + 1)
+        
+        if(lDepth < rDepth):
+            return r, rDepth;
+        elif(rDepth < lDepth):
+            return l, lDepth;
+        
+        return r + l, lDepth;
+    
+    def deepestLeavesSum(self, root: TreeNode) -> int:
+        return self.deepestLeavesSumHelper(root, 0)[0]
+        
