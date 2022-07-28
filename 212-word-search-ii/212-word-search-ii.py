@@ -22,7 +22,6 @@ class Solution:
         res = []
         def dfs(r, c, curNode):
             # exit conditions
-            
             curNode = curNode.children[board[r][c]]
             tmp = board[r][c]
             board[r][c] = "*"
