@@ -45,8 +45,9 @@ class Solution:
         '''
         
         
-        # Game plan, explore every possible "route". with dfs
-        # Known dead-end routes are prohibitted via memoization
+        # Known list of options avalabile
+        # 
+        
         def dfs():
             # Counter of all possible actions at this position
             
