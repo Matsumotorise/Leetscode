@@ -35,19 +35,6 @@ class Solution:
             colHM.append(colCntr)
         
         
-        '''
-        print(validNums)
-        print(squareCounter)
-        print()
-        print(rowHM)
-        print()
-        print(colHM)
-        '''
-        
-        
-        # Known list of options avalabile
-        # 
-        
         def dfs():
             # Counter of all possible actions at this position
             
@@ -67,7 +54,7 @@ class Solution:
                     rowHM[r][candidateNum] += 1
                     colHM[c][candidateNum] += 1
                     board[r][c] = candidateNum
-                    if dfs():
+                    if dfs(): # The next index doesn't actually matter, just as so we are able to get to toVisit == 0
                         return True
                     board[r][c] = "."
                     del squareCounter[squareIndex][candidateNum]
