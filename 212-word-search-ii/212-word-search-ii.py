@@ -20,9 +20,9 @@ class Solution:
         
         
         res = []
-        def dfs(r, c, curNode):
+        def dfs(r, c, parentNode):
             # exit conditions
-            curNode = curNode.children[board[r][c]]
+            curNode = parentNode.children[board[r][c]]
             tmp = board[r][c]
             board[r][c] = "*"
             if curNode.end:
@@ -35,6 +35,10 @@ class Solution:
                     dfs(nr,nc,curNode)
                 
             board[r][c] = tmp
+            
+            if not curNode:
+                print("AAA")
+                del parentNode.children[board[r][c]]
         
         for i in range(nRows):
             for j in range(nCols):
