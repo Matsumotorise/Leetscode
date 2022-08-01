@@ -11,29 +11,37 @@ class Solution:
                 if i != j and n == 1:
                     neighborMap[i].add(j)
         
-        numProv = 0
-        visited = set()
-        
-        def dfs(i):
-            # add children and remove their edges
-            while neighborMap[i]:
-                child = neighborMap[i].pop()
-                neighborMap[child].remove(i)
-                visited.add(child)
-                visited.add(i)
-                dfs(child)
-            
-        
-        for i, row in enumerate(isConnected):
-            if i not in visited:
-                dfs(i)
-                numProv += 1
-        return numProv
-        
-        
-        
-        
 
+        queue = deque([])
+        visited = set()
+        numProv = 0
+        
+        # Plan: BFS on each potential island
+        for i in range(len(isConnected)):
+            if i in visited:
+                continue
+            
+            numProv += 1
+        
+            queue = deque([i])
+            while queue:
+                curNode = queue.pop()
+                
+                # Exit conditions:
+                if curNode in visited:
+                    continue
+                    
+                visited.add(curNode)
+                
+                # Children
+                
+                while neighborMap[curNode]:
+                    child = neighborMap[curNode].pop()
+                    neighborMap[child].remove(curNode)
+                    queue.appendleft(child)
+            
+
+        return numProv
                 
             
             
